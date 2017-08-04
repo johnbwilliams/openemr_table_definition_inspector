@@ -13,8 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-View any CREATE TABLE statement in openemr/master/sql/database.sql
+Use this tool to View any CREATE TABLE statement in openemr/master/sql/database.sql
 
+Click the Code button on rIght to the see the code producing this application
+
+[Fork This Repo](https://github.com/johnbwilliams/openemr_table_definition_inspector)
 
 ```{r}
 suppressMessages(library(tidyverse))
