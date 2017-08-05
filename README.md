@@ -2,11 +2,11 @@
 
 # OpenEMR Table Definition Inspector
 
-This tool provide quick access to OpenEMR database table definitions.
+This tool provides quick access to OpenEMR database table definitions.
 
 ## Installation for Development
 
-- Clone this repository
+- Fork this repository
 - Install R
 - Install Rstudio IDE
 - Install R libraries: tidyverse, data.table. stringr, shiny 
@@ -18,7 +18,7 @@ Deploy openemr_table_definition_inspector.Rmd to a shiny server
 
 ## Usage
 
-- Navigate to the URL of openemr table definition inspection tool
+- Navigate to the URL of OpenEMR Table Definition Inspector
 
 - Select a table to view an OpenEMR CREATE TABLE statement listing
 
