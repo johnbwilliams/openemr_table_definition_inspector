@@ -13,11 +13,11 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-Use this tool to View any CREATE TABLE statement in openemr/master/sql/database.sql
+**View any CREATE TABLE statement in openemr/master/sql/database.sql**
 
-Click the Code button on rIght to the see the code producing this application
+*Notice the Code button*
 
-[Fork This Repo](https://github.com/johnbwilliams/openemr_table_definition_inspector)
+[Fork me on Github](https://github.com/johnbwilliams/openemr_table_definition_inspector)
 
 ```{r}
 suppressMessages(library(tidyverse))
@@ -42,7 +42,7 @@ tick_it <- function(s) {
   str_replace(new, " \\(", "` \\(")
 }
 dfx <- dfy %>%
-  mutate(val = ifelse(is_ticked(val), val, tick_it(val)))
+  mutate(val = ifelse(is_ticked(val), val, tick_it(val))); rm(dfy)
 # ------------------------------------------------
 # create list of all OpenEMR SQL table names, for UI Drop down menu
 table_names_df <- dfx %>% 
@@ -57,7 +57,7 @@ get_Create_Table_statement <- function(table_name) {
   i <- 0
   # Find first row # of CREATE TABLE statement
   done <- FALSE
-  while ((i <= len) & (done == FALSE)) {
+  while ((i <= len) & !done) {
     i <- i + 1 
     s <- as.character(dfx[i, 1])
     if (grepl(pattern, s) & grepl( "^CREATE.+", s)) done <- TRUE
@@ -65,7 +65,7 @@ get_Create_Table_statement <- function(table_name) {
   begin <- i
   # Find last row # of CREATE TABLE statement
   done <- FALSE
-  while ((i <= len) & (done == FALSE)) {
+  while ((i <= len) & !done) {
     i <- i + 1 
     s <- as.character(dfx[i, 1])
     if (grepl("ENGINE", s)) done <- TRUE
@@ -73,7 +73,6 @@ get_Create_Table_statement <- function(table_name) {
   end <- i
   return(dfx[begin:end, 1] %>% rename(" " = val))
 }
-
 # -----------------------------------------------------------
 # Display UI - dropdown menu for selection of table name 
 #            - display selected CREATE TABLE SQL statemenmt

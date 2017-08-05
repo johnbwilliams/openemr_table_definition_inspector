@@ -6,7 +6,7 @@ This tool provide quick access to OpenEMR database table definitions.
 
 ## Installation for Development
 
-- Clone this repository
+- Fork this repository
 - Install R
 - Install Rstudio IDE
 - Install R libraries: tidyverse, data.table. stringr, shiny 
